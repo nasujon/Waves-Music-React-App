@@ -1,7 +1,14 @@
-import React from 'react'
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faAngleRight, faAngleLeft} from '@fortawesome/free-solid-svg-icons'
-const Player = () => {
+import { faPlay, faAngleRight, faAngleLeft} from '@fortawesome/free-solid-svg-icons';
+
+
+const Player = ({currentSong}) => {
+
+
+  const playBtnHandler = ()=>{
+    console.log('hay')
+  }
   return (
     <div className="player-container">
       <div className="time-controll">
@@ -12,10 +19,12 @@ const Player = () => {
       <div className="play-controll">
 
         <FontAwesomeIcon className="angle-left" icon={faAngleLeft} />
-          <FontAwesomeIcon className="play" icon={faPlay} />
+        <FontAwesomeIcon onClick={playBtnHandler} className="play" icon={faPlay} />
         <FontAwesomeIcon className="angle-right" icon={faAngleRight} />
 
       </div>
+      
+      
     </div>
   )
 }
