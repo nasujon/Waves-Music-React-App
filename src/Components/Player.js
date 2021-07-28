@@ -1,13 +1,14 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faAngleRight, faAngleLeft} from '@fortawesome/free-solid-svg-icons';
 
 
 const Player = ({currentSong}) => {
 
+  const audioRef = useRef(null);
 
   const playBtnHandler = ()=>{
-    console.log('hay')
+    console.log(audioRef.current)
   }
   return (
     <div className="player-container">
@@ -24,7 +25,7 @@ const Player = ({currentSong}) => {
 
       </div>
       
-      
+      <audio ref={audioRef} src={currentSong.audio}></audio>
     </div>
   )
 }
