@@ -3,13 +3,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faAngleRight, faAngleLeft} from '@fortawesome/free-solid-svg-icons';
 
 
-const Player = ({currentSong}) => {
+const Player = ({currentSong, songPlay, setSongPlay}) => {
 
   const audioRef = useRef(null);
 
   const playBtnHandler = ()=>{
-    console.log(audioRef.current)
+    if(songPlay){
+      audioRef.current.pause();
+      setSongPlay(!songPlay)
+    }
+    else{
+      audioRef.current.play();
+      setSongPlay(!songPlay)
+    }
   }
+
   return (
     <div className="player-container">
       <div className="time-controll">
