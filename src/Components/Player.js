@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faAngleRight, faAngleLeft} from '@fortawesome/free-solid-svg-icons';
 
@@ -18,12 +18,34 @@ const Player = ({currentSong, songPlay, setSongPlay}) => {
     }
   }
 
+
+  const getTime = (time)=>{
+    return(
+      Math.floor(time / 60) + ':' + ('0' + Math.floor(time % 60)).slice(-2)
+    )
+  }
+
+  //state
+  const [songInfo, setSongInfo] = useState({
+    runningTime: null,
+    totalTime: null
+  })
+
+  const timeUpdateHandler = (e)=>{
+    const currentTime = e.target.currentTime;
+    const duration = e.target.duration;
+    setSongInfo({...songInfo, runningTime:currentTime, totalTime: duration })
+  }
+
+
+
+
   return (
     <div className="player-container">
       <div className="time-controll">
-        <p>Start time</p>
+        <p>{getTime(songInfo.runningTime)}</p>
         <input type="range" />
-        <p>End time</p>
+        <p>{getTime(songInfo.totalTime)}</p>
       </div>
       <div className="play-controll">
 
@@ -33,7 +55,7 @@ const Player = ({currentSong, songPlay, setSongPlay}) => {
 
       </div>
       
-      <audio ref={audioRef} src={currentSong.audio}></audio>
+      <audio onLoadedMetadata={timeUpdateHandler} onTimeUpdate={timeUpdateHandler} ref={audioRef} src={currentSong.audio}></audio>
     </div>
   )
 }
