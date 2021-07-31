@@ -1,0 +1,60 @@
+.library {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 20%;
+  
+  background: #fff;
+  height: 100%;
+  overflow-y: scroll;
+  box-shadow: 0 4px 8px rgb(214, 227, 241);
+}
+
+.library-song img {
+  width: 30%;
+}
+
+.library-list {
+  padding: 25px 0;
+}
+
+.library h2 {
+  color: #111;
+  padding: 25px 25px 0 25px;
+}
+
+.library-song {
+  display: flex;
+  padding: 20px 0;
+  align-items: center;
+  padding: 25px;
+  transition:all .3s;
+}
+
+.library-song h3, 
+.library-song h4 {
+  color: #111;
+}
+
+.library-song h3 {
+  font-size: 16px;
+}
+
+.library-song h4 {
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+.song-desc {
+  padding-left: 20px;
+}
+
+.song-desc {
+  padding-left: 20px;
+}
+
+.library-song:hover {
+  background: #c7c7e6;
+  cursor: pointer;
+  transition:all .3s;
+}

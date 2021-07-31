@@ -23,7 +23,6 @@ const Player = ({currentSong, songPlay, setSongPlay}) => {
     }
   }
 
-
   const getTime = (time)=>{
     return(
       Math.floor(time / 60) + ':' + ('0' + Math.floor(time % 60)).slice(-2)
@@ -48,7 +47,7 @@ const Player = ({currentSong, songPlay, setSongPlay}) => {
     setSongInfo({...songInfo, currentTime: e.target.value})
   }
   
-
+  
   return (
     <div className="player-container">
       <div className="time-controll">
@@ -62,6 +61,7 @@ const Player = ({currentSong, songPlay, setSongPlay}) => {
         />
 
         <p>{getTime(songInfo.totalTime)}</p>
+
       </div>
 
       <div className="play-controll">
