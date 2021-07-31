@@ -12,7 +12,7 @@ import './Styles/master.scss';
 function App() {
   
   const [songs, setSongs] = useState(data());
-  const [currentSong, setCurrentSong] = useState(songs[5]);
+  const [currentSong, setCurrentSong] = useState(songs[0]);
   const [songPlay, setSongPlay] = useState(false);
 
   return(
@@ -28,7 +28,11 @@ function App() {
         setSongPlay={setSongPlay} 
         currentSong={currentSong} 
       />
-      <Library songs={songs} />
+
+      <Library 
+        songs={songs} 
+        setCurrentSong={setCurrentSong}
+      />
 
     </div>
   )
