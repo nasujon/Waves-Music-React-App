@@ -10,15 +10,22 @@ import './Styles/master.scss';
 function App() {
   
   const [songs, setSongs] = useState(data());
-  const [currentSong, setCurrentSong] = useState(songs[2]);
+  const [currentSong, setCurrentSong] = useState(songs[3]);
   const [songPlay, setSongPlay] = useState(false);
 
   return(
 
     <div className="app">
       
-      <Song currentSong={currentSong} />
-      <Player songPlay={songPlay} setSongPlay={setSongPlay} currentSong={currentSong} />
+      <Song 
+        currentSong={currentSong} 
+      />
+
+      <Player 
+        songPlay={songPlay} 
+        setSongPlay={setSongPlay} 
+        currentSong={currentSong} 
+      />
 
     </div>
   )
