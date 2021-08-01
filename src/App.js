@@ -4,6 +4,7 @@ import React, {useRef, useState} from 'react';
 import Song from './Components/Song';
 import Player from './Components/Player';
 import Library from './Components/Library'
+import Nav from './Components/Nav'
 //adding data
 import data from './util';
 //adding styles
@@ -30,7 +31,7 @@ function App() {
   return(
 
     <div className="app">
-      
+      <Nav />
       <Song 
         currentSong={currentSong} 
       />

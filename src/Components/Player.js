@@ -47,7 +47,7 @@ const Player = ({currentSong, songPlay, setSongPlay, audioRef, setSongInfo, song
         <input 
           onChange={sliderHandler} 
           min={0} value={songInfo.runningTime} 
-          max={songInfo.totalTime} 
+          max={songInfo.totalTime || 0} 
           type="range" 
         />
 
