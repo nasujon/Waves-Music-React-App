@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faPlay, 
@@ -8,9 +8,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 
-const Player = ({currentSong, songPlay, setSongPlay}) => {
+const Player = ({currentSong, songPlay, setSongPlay, audioRef, setSongInfo, songInfo}) => {
 
-  const audioRef = useRef(null);
+
 
   const playBtnHandler = ()=>{
     if(songPlay){
@@ -30,17 +30,8 @@ const Player = ({currentSong, songPlay, setSongPlay}) => {
   }
   
 
-  //state
-  const [songInfo, setSongInfo] = useState({
-    runningTime: 0,
-    totalTime: 0
-  })
 
-  const timeUpdateHandler = (e)=>{
-    const currentTime = e.target.currentTime;
-    const duration = e.target.duration;
-    setSongInfo({...songInfo, runningTime:currentTime, totalTime: duration })
-  }
+
 
   const sliderHandler = (e)=>{
     audioRef.current.currentTime = e.target.value;
@@ -83,12 +74,7 @@ const Player = ({currentSong, songPlay, setSongPlay}) => {
 
       </div>
       
-      <audio 
-        onLoadedMetadata={timeUpdateHandler} 
-        onTimeUpdate={timeUpdateHandler} 
-        ref={audioRef} 
-        src={currentSong.audio}
-      />
+      
     </div>
   )
 }
