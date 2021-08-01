@@ -8,8 +8,14 @@
   height: 100%;
   overflow-y: scroll;
   box-shadow: 0 4px 8px rgb(214, 227, 241);
+  transform: translateX(-100%);
+  transition: all .3s ease;
 }
 
+.library.active{
+  transform: translateX(0%);
+  transition: all .3s ease;
+}
 .library-song img {
   width: 30%;
 }

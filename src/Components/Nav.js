@@ -5,11 +5,14 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 
-const  Nav = () => {
+const  Nav = ({setLibraryClass, libraryClass}) => {
+
+
+
   return (
     <nav>
       <h2>Waves</h2>
-      <button>
+      <button onClick={()=> setLibraryClass(!libraryClass)}>
         Library
         <FontAwesomeIcon icon={faMusic} />
       </button>
